@@ -1,4 +1,5 @@
 const InputLabel = ({
+  className,
   name,
   id,
   labelText,
@@ -8,7 +9,9 @@ const InputLabel = ({
   type = "text",
 }) => (
   <>
-    <label htmlFor={name}>{labelText}</label>
+    <label className={className} htmlFor={name}>
+      {labelText}
+    </label>
     <input
       name={name}
       id={id}

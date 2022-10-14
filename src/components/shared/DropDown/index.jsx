@@ -1,4 +1,5 @@
 const DropDown = ({
+  className,
   option,
   id,
   labelText,
@@ -7,8 +8,10 @@ const DropDown = ({
   onChange,
   OPTIONS,
 }) => (
-  <label htmlFor={option}>
-    {labelText}
+  <>
+    <label htmlFor={option} className={className}>
+      {labelText}
+    </label>
     <select
       name={option}
       id={id}
@@ -22,7 +25,7 @@ const DropDown = ({
         </option>
       ))}
     </select>
-  </label>
+  </>
 );
 
 export default DropDown;

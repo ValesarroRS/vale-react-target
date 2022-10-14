@@ -5,7 +5,13 @@ import DropDown from "../shared/DropDown/index.jsx";
 import Button from "../shared/Button/index.jsx";
 import { useNavigate } from "react-router-dom";
 
-const GENDERS = ["Female", "Male", "Non-binary", "I rather not say"];
+const GENDERS = [
+  "Select your gender",
+  "Female",
+  "Male",
+  "Non-binary",
+  "I rather not say",
+];
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -34,65 +40,69 @@ const SignUpForm = () => {
     const json = await res.json();
     console.log(json);
   }
+
   return (
-    <div className="signUpForm">
-      <form>
-        <h1 className="title">Sign Up</h1>
-        <InputLabel
-          name="name"
-          id="name"
-          labelText="Name"
-          value={user.name}
-          placeholder="name"
-          onChange={handleChange}
-        />
-        <InputLabel
-          name="email"
-          id="email"
-          labelText="Email"
-          value={user.email}
-          placeholder="email"
-          onChange={handleChange}
-        />
-        <InputLabel
-          name="password"
-          id="password"
-          labelText="Password"
-          type="password"
-          value={user.password}
-          placeholder="password"
-          onChange={handleChange}
-        />
-        <InputLabel
-          name="confPassword"
-          id="confPassword"
-          labelText="Confirm Password"
-          type="password"
-          value={user.confPassword}
-          placeholder="confPassword"
-          onChange={handleChange}
-        />
-        <DropDown
-          option={user.gender}
-          id="gender"
-          name="gender"
-          labelText="Gender"
-          value={user.gender}
-          placeholder="gender"
-          onChange={handleChange}
-          OPTIONS={GENDERS}
-        />
-        <Button name="signUp" clasName="signUp" text="Sign Up" type="Primary" />
-        <div clasName="splitBar"></div>
-        <Button
-          name="signIn"
-          clasName="signIn"
-          text="Sign In"
-          type="Secondary"
-          onClick={navigate("/")}
-        />
-      </form>
-    </div>
+    <>
+      <div className="signUpForm">
+        <form>
+          <h1 className="title">Sign Up</h1>
+          <InputLabel
+            className="inputName"
+            name="name"
+            id="name"
+            labelText="Name"
+            value={user.name}
+            onChange={handleChange}
+          />
+          <InputLabel
+            className="inputName"
+            name="email"
+            id="email"
+            labelText="Email"
+            value={user.email}
+            onChange={handleChange}
+          />
+          <InputLabel
+            className="inputName"
+            name="password"
+            id="password"
+            labelText="Password"
+            type="password"
+            value={user.password}
+            placeholder="Min. 6 characters long"
+            onChange={handleChange}
+          />
+          <InputLabel
+            className="inputName"
+            name="confPassword"
+            id="confPassword"
+            labelText="Confirm Password"
+            type="password"
+            value={user.confPassword}
+            onChange={handleChange}
+          />
+          <DropDown
+            className="inputName"
+            option={user.gender}
+            id="gender"
+            name="gender"
+            labelText="Gender"
+            value={user.gender}
+            placeholder="gender"
+            onChange={handleChange}
+            OPTIONS={GENDERS}
+          />
+          <Button name="signUp" className="largeButton" text="Sign Up" />
+          <div className="splitBar" />
+          <Button
+            name="signIn"
+            className="smallButton"
+            text="Sign In"
+            onClick={navigate("/")}
+          />
+        </form>
+      </div>
+    </>
   );
 };
 
