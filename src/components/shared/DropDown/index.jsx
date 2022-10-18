@@ -1,19 +1,19 @@
 const DropDown = ({
   className,
-  option,
   id,
   labelText,
   value,
+  name,
   placeholder,
   onChange,
   OPTIONS,
 }) => (
   <>
-    <label htmlFor={option} className={className}>
+    <label htmlFor={name} className={className}>
       {labelText}
     </label>
     <select
-      name={option}
+      name={name}
       id={id}
       value={value}
       placeholder={placeholder}

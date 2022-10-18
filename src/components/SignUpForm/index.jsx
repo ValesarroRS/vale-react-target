@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import InputLabel from "../shared/InputLabel/index.jsx";
 import DropDown from "../shared/DropDown/index.jsx";
 import Button from "../shared/Button/index.jsx";
@@ -16,9 +16,8 @@ const GENDERS = [
 const SignUpForm = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    createUser();
-  }, []);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const [user, setUser] = useState({
     name: "",
@@ -33,19 +32,40 @@ const SignUpForm = () => {
     setUser({ ...user, [name]: value });
   };
 
-  async function createUser() {
-    const res = await fetch(
-      `https://target-api-induction-v2.herokuapp.com/api/v1/users`
-    );
-    const json = await res.json();
-    console.log(json);
+  async function createUser(e) {
+    e.preventDefault();
+    setLoading(true);
+    setError(false);
+    const url = `https://target-api-induction-v2.herokuapp.com/api/v1/users`;
+    const body = {
+      user: {
+        first_name: user.name,
+        email: user.email,
+        gender: user.gender,
+        password: user.password,
+        password_confirmation: user.confPassword,
+      },
+    };
+    await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json))
+      .catch(() => {
+        setError(true);
+        console.log("hay Error");
+      })
+      .finally(() => setLoading(false));
   }
 
   return (
     <>
       <div className="signUpForm">
-        <form>
+        <form onSubmit={createUser}>
           <h1 className="title">Sign Up</h1>
+          {loading ? <p>Loading</p> : null}
           <InputLabel
             className="inputName"
             name="name"
@@ -83,7 +103,6 @@ const SignUpForm = () => {
           />
           <DropDown
             className="inputName"
-            option={user.gender}
             id="gender"
             name="gender"
             labelText="Gender"
@@ -92,15 +111,21 @@ const SignUpForm = () => {
             onChange={handleChange}
             OPTIONS={GENDERS}
           />
-          <Button name="signUp" className="largeButton" text="Sign Up" />
-          <div className="splitBar" />
           <Button
-            name="signIn"
-            className="smallButton"
-            text="Sign In"
-            onClick={navigate("/")}
+            name="signUp"
+            className="largeButton"
+            text="Sign Up"
+            type="submit"
           />
+          {error ? <p>Error</p> : null}
+          <div className="splitBar" />
         </form>
+        <Button
+          name="signIn"
+          className="smallButton"
+          text="Sign In"
+          onClick={() => navigate("/")}
+        />
       </div>
     </>
   );

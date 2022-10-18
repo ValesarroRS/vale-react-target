@@ -117,6 +117,12 @@ input, select {
   letter-spacing: 1.5px;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .inputName {
   text-transform: uppercase;
   font-size: 11px;

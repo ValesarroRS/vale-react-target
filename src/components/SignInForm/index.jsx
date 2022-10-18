@@ -34,6 +34,7 @@ function SignIn() {
           name="password"
           id="passwordField"
           labelText="Password"
+          type="password"
           value={user.password}
           onChange={handleChange}
         />
@@ -50,7 +51,7 @@ function SignIn() {
         name="SignUp"
         text="Sign Up"
         className="smallButton"
-        onClick={navigate("/signup")}
+        onClick={() => navigate("/signup")}
       />
     </>
   );
