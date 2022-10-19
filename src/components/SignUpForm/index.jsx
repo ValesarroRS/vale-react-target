@@ -5,13 +5,7 @@ import DropDown from "../shared/DropDown/index.jsx";
 import Button from "../shared/Button/index.jsx";
 import { useNavigate } from "react-router-dom";
 
-const GENDERS = [
-  "Select your gender",
-  "Female",
-  "Male",
-  "Non-binary",
-  "I rather not say",
-];
+const GENDERS = ["select your gender", "female", "male", "other"];
 
 const SignUpForm = () => {
   const navigate = useNavigate();
