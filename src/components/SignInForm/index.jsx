@@ -4,53 +4,65 @@ import InputLabel from "../shared/InputLabel/index.jsx";
 import Button from "../shared/Button/index.jsx";
 import Header from "../Header/index.jsx";
 import { useNavigate } from "react-router-dom";
+import { usePostSignInMutation } from "../../services/targetApi.js";
+import { setCredentials, useAuth } from "../../store/auth.reducer";
+import { useDispatch } from "react-redux";
 
 function SignIn() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const { user: storeUser } = useAuth();
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [
+    signInRequest,
+    {
+      data: signInData,
+      isLoading: signInLoading,
+      isError: signInIsError,
+      isSuccess: signInSucess,
+    },
+  ] = usePostSignInMutation();
 
   async function login(e) {
     e.preventDefault();
-    setLoading(true);
-    setError(false);
-    const url = `https://target-api-induction-v2.herokuapp.com/api/v1/users/sign_in`;
     const body = {
       user: {
         email: user.email,
         password: user.password,
       },
     };
-    await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json))
-      .catch(() => {
-        setError(true);
-        console.log("hay Error");
-      })
-      .finally(() => setLoading(false));
+    let credentials;
+    try {
+      credentials = await signInRequest(body).unwrap();
+    } catch (error) {
+      return;
+    }
+    dispatch(setCredentials(credentials));
+    // Aca va el navigate al home :p
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
+
+  if (storeUser) {
+    return <div> Already logged in! {storeUser}</div>;
+  }
+  if (signInSucess) {
+    console.log(signInData);
+    return <div> Success yay!</div>;
+  }
   return (
     <>
       <Header />
       <div className="signIn">
         <form onSubmit={login}>
-          {loading ? <p>Loading</p> : null}
+          {signInLoading ? <p>Loading</p> : null}
           <InputLabel
             className="inputName"
             name="email"
@@ -69,7 +81,7 @@ function SignIn() {
             onChange={handleChange}
           />
           <Button name="signIn" className="largeButton" text="Sign In" />
-          {error ? <p>Error</p> : null}
+          {signInIsError ? <p>Error</p> : null}
         </form>
         <p className="forgotPassword">Forgot your password?</p>
       </div>

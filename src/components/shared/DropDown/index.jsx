@@ -7,6 +7,7 @@ const DropDown = ({
   placeholder,
   onChange,
   OPTIONS,
+  isLoading,
 }) => (
   <>
     <label htmlFor={name} className={className}>
@@ -19,11 +20,15 @@ const DropDown = ({
       placeholder={placeholder}
       onChange={onChange}
     >
-      {OPTIONS.map((option) => (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      ))}
+      {isLoading ? (
+        <option>loading</option>
+      ) : (
+        OPTIONS.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))
+      )}
     </select>
   </>
 );

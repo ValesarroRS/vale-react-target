@@ -4,15 +4,28 @@ import InputLabel from "../shared/InputLabel/index.jsx";
 import DropDown from "../shared/DropDown/index.jsx";
 import Button from "../shared/Button/index.jsx";
 import { useNavigate } from "react-router-dom";
-
-const GENDERS = ["select your gender", "female", "male", "other"];
+import {
+  useFetchValidGendersQuery,
+  usePostSignUpMutation,
+} from "../../services/targetApi.js";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const { data: genderData, isLoading: genderLoading } =
+    useFetchValidGendersQuery();
 
+  const [
+    signUpRequest,
+    {
+      isLoading: signUpLoading,
+      isError: signUpIsError,
+      isSuccess: signUpSuccess,
+      error: signUpError,
+    },
+  ] = usePostSignUpMutation();
+
+  console.log(signUpError);
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -28,9 +41,6 @@ const SignUpForm = () => {
 
   async function createUser(e) {
     e.preventDefault();
-    setLoading(true);
-    setError(false);
-    const url = `https://target-api-induction-v2.herokuapp.com/api/v1/users`;
     const body = {
       user: {
         first_name: user.name,
@@ -40,26 +50,18 @@ const SignUpForm = () => {
         password_confirmation: user.confPassword,
       },
     };
-    await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json))
-      .catch(() => {
-        setError(true);
-        console.log("hay Error");
-      })
-      .finally(() => setLoading(false));
+    signUpRequest(body);
   }
 
+  if (signUpSuccess) {
+    return <div>Success yayy!</div>;
+  }
   return (
     <>
       <div className="signUpForm">
         <form onSubmit={createUser}>
           <h1 className="title">Sign Up</h1>
-          {loading ? <p>Loading</p> : null}
+          {signUpLoading ? <p>Loading</p> : null}
           <InputLabel
             className="inputName"
             name="name"
@@ -101,9 +103,10 @@ const SignUpForm = () => {
             name="gender"
             labelText="Gender"
             value={user.gender}
-            placeholder="gender"
+            placeholder="select your gender"
             onChange={handleChange}
-            OPTIONS={GENDERS}
+            OPTIONS={genderData}
+            isLoading={genderLoading}
           />
           <Button
             name="signUp"
@@ -111,7 +114,7 @@ const SignUpForm = () => {
             text="Sign Up"
             type="submit"
           />
-          {error ? <p>Error</p> : null}
+          {signUpIsError ? <p>Error</p> : null}
           <div className="splitBar" />
         </form>
         <Button
