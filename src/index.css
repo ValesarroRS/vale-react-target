@@ -36,10 +36,15 @@ code {
 }
 
 .title {
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.title.confirmation {
+  margin-bottom: 33px
 }
 
 .secondTitle {
@@ -51,7 +56,7 @@ code {
 .description {
   font-size: 14px;
   line-height: 26px;
-  text-align: left;
+  text-align: center;
   font-weight: 300;
   margin: 0px;
 }
@@ -180,4 +185,16 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.secondaryTitle {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.primaryParagraph {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0px;
+  margin-top: 13px;
 }
