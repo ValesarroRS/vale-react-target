@@ -4,6 +4,7 @@ import InputLabel from "../shared/InputLabel/index.jsx";
 import DropDown from "../shared/DropDown/index.jsx";
 import Button from "../shared/Button/index.jsx";
 import { useNavigate } from "react-router-dom";
+import ConfirmationSent from "../ConfirmationSent/index.jsx";
 import {
   useFetchValidGendersQuery,
   usePostSignUpMutation,
@@ -54,7 +55,7 @@ const SignUpForm = () => {
   }
 
   if (signUpSuccess) {
-    return <div>Success yayy!</div>;
+    return <ConfirmationSent />;
   }
   return (
     <>
