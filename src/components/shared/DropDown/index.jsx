@@ -6,7 +6,7 @@ const DropDown = ({
   name,
   placeholder,
   onChange,
-  OPTIONS,
+  options,
   isLoading,
 }) => (
   <>
@@ -23,7 +23,7 @@ const DropDown = ({
       {isLoading ? (
         <option>loading</option>
       ) : (
-        OPTIONS.map((option) => (
+        options.map((option) => (
           <option key={option} value={option}>
             {option}
           </option>
