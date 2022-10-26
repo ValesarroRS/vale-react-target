@@ -106,7 +106,7 @@ const SignUpForm = () => {
             value={user.gender}
             placeholder="select your gender"
             onChange={handleChange}
-            OPTIONS={genderData}
+            options={genderData}
             isLoading={genderLoading}
           />
           <Button
