@@ -198,3 +198,8 @@ form {
   margin-bottom: 0px;
   margin-top: 13px;
 }
+
+.error {
+  font-size: 11px;
+  color: red;
+}

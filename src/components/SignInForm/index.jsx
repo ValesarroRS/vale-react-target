@@ -24,6 +24,7 @@ function SignIn() {
       isLoading: signInLoading,
       isError: signInIsError,
       isSuccess: signInSucess,
+      error: signInError,
     },
   ] = usePostSignInMutation();
 
@@ -81,7 +82,9 @@ function SignIn() {
             onChange={handleChange}
           />
           <Button name="signIn" className="largeButton" text="Sign In" />
-          {signInIsError ? <p>Error</p> : null}
+          {signInIsError ? (
+            <p className="error">{signInError.data.error}</p>
+          ) : null}
         </form>
         <p className="forgotPassword">Forgot your password?</p>
       </div>

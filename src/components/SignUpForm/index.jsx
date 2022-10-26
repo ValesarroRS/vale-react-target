@@ -115,7 +115,9 @@ const SignUpForm = () => {
             text="Sign Up"
             type="submit"
           />
-          {signUpIsError ? <p>Error</p> : null}
+          {signUpIsError ? (
+            <p className="error">{signUpError.data.errors.full_messages[0]}</p>
+          ) : null}
           <div className="splitBar" />
         </form>
         <Button
