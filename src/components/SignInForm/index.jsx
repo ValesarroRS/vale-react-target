@@ -43,7 +43,7 @@ function SignIn() {
       return;
     }
     dispatch(setCredentials(credentials));
-    // Aca va el navigate al home :p
+    // TODO: here should I add navigation to home page later.
   }
 
   const handleChange = (e) => {
