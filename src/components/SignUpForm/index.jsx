@@ -61,7 +61,7 @@ const SignUpForm = () => {
       <div className="signUpForm">
         <form onSubmit={createUser}>
           <h1 className="title">Sign Up</h1>
-          {signUpLoading ? <p>Loading</p> : null}
+          {signUpLoading && <p>Loading</p>}
           <InputLabel
             className="inputName"
             name="name"
@@ -114,9 +114,9 @@ const SignUpForm = () => {
             text="Sign Up"
             type="submit"
           />
-          {signUpIsError ? (
+          {signUpIsError && (
             <p className="error">{signUpError.data.errors.full_messages[0]}</p>
-          ) : null}
+          )}
           <div className="splitBar" />
         </form>
         <Button

@@ -61,7 +61,7 @@ function SignIn() {
       <Header />
       <div className="signIn">
         <form onSubmit={login}>
-          {signInLoading ? <p>Loading</p> : null}
+          {signInLoading && <p>Loading</p>}
           <InputLabel
             className="inputName"
             name="email"
@@ -80,9 +80,7 @@ function SignIn() {
             onChange={handleChange}
           />
           <Button name="signIn" className="largeButton" text="Sign In" />
-          {signInIsError ? (
-            <p className="error">{signInError.data.error}</p>
-          ) : null}
+          {signInIsError && <p className="error">{signInError.data.error}</p>}
         </form>
         <p className="forgotPassword">Forgot your password?</p>
       </div>
