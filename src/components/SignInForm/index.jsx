@@ -55,7 +55,6 @@ function SignIn() {
     return <div> Already logged in! {storeUser}</div>;
   }
   if (signInSucess) {
-    console.log(signInData);
     return <div> Success yay!</div>;
   }
   return (

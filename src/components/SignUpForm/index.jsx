@@ -26,7 +26,6 @@ const SignUpForm = () => {
     },
   ] = usePostSignUpMutation();
 
-  console.log(signUpError);
   const [user, setUser] = useState({
     name: "",
     email: "",
