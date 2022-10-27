@@ -9,13 +9,13 @@ const Home = () => {
   return (
     <>
       <BrowserRouter>
-        <div className="section">
+        <section className="section">
           <Routes>
             <Route path="/signUp" element={<SignUpForm />} />
             <Route path="/" element={<SignIn />} />
             <Route path="/about" element={<About />} />
           </Routes>
-        </div>
+        </section>
         <DownloadApp />
       </BrowserRouter>
     </>
