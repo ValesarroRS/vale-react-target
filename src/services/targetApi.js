@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 export const targetApi = createApi({
   reducerPath: "targetApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://target-api-induction-v2.herokuapp.com/api/v1",
+    baseUrl: process.env.REACT_APP_BASE_URL,
   }),
   endpoints: (builder) => ({
     fetchValidGenders: builder.query({
