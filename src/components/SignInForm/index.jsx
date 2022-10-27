@@ -45,8 +45,8 @@ function SignIn() {
     // TODO: here should I add navigation to home page later.
   }
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
 
