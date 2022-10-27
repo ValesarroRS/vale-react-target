@@ -28,8 +28,8 @@ function SignIn() {
     },
   ] = usePostSignInMutation();
 
-  async function login(e) {
-    e.preventDefault();
+  async function login(event) {
+    event.preventDefault();
     const body = {
       user: {
         email: user.email,

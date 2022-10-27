@@ -34,13 +34,13 @@ const SignUpForm = () => {
     gender: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
 
-  async function createUser(e) {
-    e.preventDefault();
+  async function createUser(event) {
+    event.preventDefault();
     const body = {
       user: {
         first_name: user.name,
