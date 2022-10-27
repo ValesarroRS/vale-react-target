@@ -20,7 +20,6 @@ function SignIn() {
   const [
     signInRequest,
     {
-      data: signInData,
       isLoading: signInLoading,
       isError: signInIsError,
       isSuccess: signInSucess,
