@@ -1,8 +1,8 @@
 import React from "react";
-import SignIn from "../../components/SignInForm/index.jsx";
-import DownloadApp from "../../components/DownloadApp/index.jsx";
-import SignUpForm from "../../components/SignUpForm/index.jsx";
-import About from "../../components/About/index.jsx";
+import SignIn from "components/SignInForm";
+import DownloadApp from "components/DownloadApp";
+import SignUpForm from "components/SignUpForm";
+import About from "components/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const Home = () => {

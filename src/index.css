@@ -85,7 +85,7 @@ code {
 }
 
 #social {
-  background: url(Social.svg);
+  background: url(/src/assets/icons/Social.svg);
   width: 77px;
   height: 26px;
   background-repeat: no-repeat;
@@ -93,7 +93,7 @@ code {
 }
 
 #AppStore {
-  background: url(appstore.svg);
+  background: url(/src/assets/icons/appstore.svg);
   width: 120px;
   height: 38px;
   background-repeat: no-repeat;

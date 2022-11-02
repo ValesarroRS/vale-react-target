@@ -1,5 +1,6 @@
 import React from "react";
-import Smilies from "../../smilies.svg";
+import Smilies from "assets/icons/smilies.svg";
+import Title from "components/shared/Title";
 
 const Header = () => {
   return (

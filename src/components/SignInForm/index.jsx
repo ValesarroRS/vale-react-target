@@ -1,11 +1,10 @@
-import React from "react";
-import { useState } from "react";
-import InputLabel from "../shared/InputLabel/index.jsx";
-import Button from "../shared/Button/index.jsx";
-import Header from "../Header/index.jsx";
+import { React, useState } from "react";
+import InputLabel from "components/shared/InputLabel";
+import Button from "components/shared/Button";
+import Header from "components/Header";
 import { useNavigate } from "react-router-dom";
-import { usePostSignInMutation } from "../../services/targetApi.js";
-import { setCredentials, useAuth } from "../../store/auth.reducer";
+import { usePostSignInMutation } from "services/targetApi";
+import { setCredentials, useAuth } from "store/auth.reducer";
 import { useDispatch } from "react-redux";
 
 function SignIn() {

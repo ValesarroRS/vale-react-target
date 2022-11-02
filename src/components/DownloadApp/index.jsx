@@ -1,6 +1,6 @@
 import React from "react";
-import device from "../../i6.png";
-import play from "../../assets/icons/play.svg";
+import device from "assets/icons/i6.png";
+import play from "assets/icons/play.svg";
 
 const DownloadApp = () => {
   return (
