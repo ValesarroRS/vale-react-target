@@ -1,14 +1,13 @@
-import React from "react";
-import { useState } from "react";
-import InputLabel from "../shared/InputLabel/index.jsx";
-import DropDown from "../shared/DropDown/index.jsx";
-import Button from "../shared/Button/index.jsx";
+import { React, useState } from "react";
+import InputLabel from "components/shared/InputLabel";
+import DropDown from "components/shared/DropDown";
+import Button from "components/shared/Button";
+import ConfirmationSent from "components/ConfirmationSent";
 import { useNavigate } from "react-router-dom";
-import ConfirmationSent from "../ConfirmationSent/index.jsx";
 import {
   useFetchValidGendersQuery,
   usePostSignUpMutation,
-} from "../../services/targetApi.js";
+} from "services/targetApi";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
