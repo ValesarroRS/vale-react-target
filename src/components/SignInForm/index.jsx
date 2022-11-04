@@ -81,7 +81,11 @@ function SignIn() {
           <Button name="signIn" className="largeButton" text="Sign In" />
           {signInIsError && <p className="error">{signInError.data.error}</p>}
         </form>
-        <p className="forgotPassword">Forgot your password?</p>
+        <Button
+          name="forgotPassword"
+          className="smallLinkText"
+          text="Forgot your password?"
+        />
       </div>
       <Button
         className="mediumButton"
