@@ -1,0 +1,37 @@
+button {
+    border: 0rem solid;
+    background-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.103rem;
+    font-size: 0.688rem;
+}
+
+.largeButton {
+    @extend button;
+    width: 11.563rem;
+    height: 2.313rem;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    margin-top: 1.563rem;
+}
+    
+    
+.mediumButton {
+    @extend button;
+    font-weight: 600;
+    letter-spacing: 0.15rem;
+    font-size: 0.75rem;
+}
+
+.smallButton {
+    @extend button;
+}
+
+.smallLinkText {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.688rem;
+    margin-top: 0.938rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
