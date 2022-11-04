@@ -27,51 +27,6 @@ code {
   position: relative;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 321px;
-}
-
-.title {
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 20px;
-  margin-bottom: 0px;
-}
-
-.title.confirmation {
-  margin-bottom: 33px
-}
-
-.secondTitle {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0px;
-}
-
-.description {
-  font-size: 14px;
-  line-height: 26px;
-  text-align: center;
-  font-weight: 300;
-  margin: 0px;
-}
-
-
-.signIn {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  margin: 20px
-}
-
 .signUpOptions {
   display: flex;
   flex-direction: column;
@@ -80,25 +35,25 @@ code {
 
 
 #i6 {
-  width: 300px;
+  width: 18.75rem;
   height: auto;
 }
 
 #social {
   background: url(/src/assets/icons/Social.svg);
-  width: 77px;
-  height: 26px;
+  width: 4.813rem;
+  height: 1.625rem;
   background-repeat: no-repeat;
-  border: 0px;
+  border: 0rem;
 }
 
 #AppStore {
   background: url(/src/assets/icons/appstore.svg);
-  width: 120px;
-  height: 38px;
+  width: 7.5rem;
+  height: 2.375rem;
   background-repeat: no-repeat;
-  border: 0px;
-  margin-bottom: 20px;
+  border: 0rem;
+  margin-bottom: 1.25rem;
 }
 
 .App {
@@ -113,13 +68,13 @@ code {
 
 input, select {
   font-family: 'Open Sans', sans-serif;
-  width: 188px;
-  height: 36px;
-  border: 1px solid black;
+  width: 11.75rem;
+  height: 2.25rem;
+  border: 0.063rem solid black;
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: 0.625rem;
   text-align: center;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.094rem;
 }
 
 select {
@@ -128,57 +83,21 @@ select {
   appearance: none;
 }
 
-.inputName {
+label {
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 0.688rem;
   font-weight: 600;
-  letter-spacing: 1.65px;
-  margin-top: 25px;
-  margin-bottom: 4px;
-}
-
-
-.largeButton {
-  width: 185px;
-  height: 37px;
-  background-color: black;
-  border: 0px solid;
-  color: white;
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.65px;
-  margin-top: 25px;
-}
-
-
-.mediumButton {
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 2.4px;
-  font-size: 12px;
-  background-color: transparent;
-  border: 0px;
-}
-
-.smallButton {
-  border: 0px solid;
-  background-color: transparent;
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 1.65px;
-}
-
-.forgotPassword {
-  font-size: 11px;
+  letter-spacing: 0.103rem;
+  margin-top: 1.563rem;
+  margin-bottom: 0.25rem;
 }
 
 .splitBar {
-  width: 121px;
-  height: 1px;
+  width: 7.563rem;
+  height: 0.063rem;
   background-color: black;
-  margin-top: 20px;
-  margin-bottom: 16px;
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 form {
@@ -187,19 +106,7 @@ form {
   align-items: center;
 }
 
-.secondaryTitle {
-  font-size: 21px;
-  font-weight: 700;
-}
-
-.primaryParagraph {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 0px;
-  margin-top: 13px;
-}
-
 .error {
-  font-size: 11px;
+  font-size: 0.688rem;
   color: red;
 }
