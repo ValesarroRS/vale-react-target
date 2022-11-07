@@ -109,12 +109,7 @@ const SignUpForm = () => {
             options={genderData}
             isLoading={genderLoading}
           />
-          <Button
-            name="signUp"
-            className="largeButton"
-            text="Sign Up"
-            type="submit"
-          />
+          <Button name="signUp" text="Sign Up" type="submit" />
           {signUpIsError && (
             <p className="error">{signUpError.data.errors.full_messages[0]}</p>
           )}
@@ -122,7 +117,7 @@ const SignUpForm = () => {
         </form>
         <Button
           name="signIn"
-          className="smallButton"
+          isSmall={true}
           text="Sign In"
           onClick={() => navigate("/")}
         />

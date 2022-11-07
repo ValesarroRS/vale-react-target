@@ -1,5 +1,5 @@
-import "./index.scss";
+import styles from "./index.module.scss";
 
-const Description = ({ text }) => <p className="description">{text}</p>;
+const Description = ({ text }) => <p className={styles.description}>{text}</p>;
 
 export default Description;

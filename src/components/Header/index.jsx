@@ -2,12 +2,12 @@ import React from "react";
 import Smilies from "assets/icons/smilies.svg";
 import Title from "components/shared/Title";
 import PrimaryParagraph from "components/shared/Paragraph";
-import "./index.scss";
+import styles from "./index.module.scss";
 import Description from "components/shared/Description";
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className={styles.header}>
       <img src={Smilies} alt="Smilies" />
       <Title text="Target MVD" />
       <PrimaryParagraph text={"Find people near you & Connect"} />

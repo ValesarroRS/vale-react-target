@@ -8,6 +8,7 @@ import { setCredentials, useAuth } from "store/auth.reducer";
 import { useDispatch } from "react-redux";
 import Error from "components/shared/Error";
 import SplitBar from "components/shared/SplitBar";
+import styles from "./index.module.scss";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -60,11 +61,11 @@ function SignIn() {
   return (
     <>
       <Header />
-      <div className="signIn">
+      <div className={styles.signIn}>
         <form onSubmit={login}>
           {signInLoading && <p>Loading</p>}
           <InputLabel
-            className="inputName"
+            className={styles.inputName}
             name="email"
             id="emailField"
             labelText="Email"
@@ -72,7 +73,7 @@ function SignIn() {
             onChange={handleChange}
           />
           <InputLabel
-            className="inputName"
+            className={styles.inputName}
             name="password"
             id="passwordField"
             labelText="Password"
@@ -80,17 +81,17 @@ function SignIn() {
             value={user.password}
             onChange={handleChange}
           />
-          <Button name="signIn" className="largeButton" text="Sign In" />
+          <Button name="signIn" text="Sign In" />
           {signInIsError && <Error>{signInError.data.error}</Error>}
         </form>
         <Button
           name="forgotPassword"
-          className="smallLinkText"
+          isSmallLink={true}
           text="Forgot your password?"
         />
       </div>
       <Button
-        className="mediumButton"
+        isMedium={true}
         name="connectWithFacebook"
         text="Connect with facebook"
       />
@@ -98,7 +99,7 @@ function SignIn() {
       <Button
         name="SignUp"
         text="Sign Up"
-        className="smallButton"
+        isSmall={true}
         onClick={() => navigate("/signup")}
       />
     </>

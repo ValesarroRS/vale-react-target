@@ -1,18 +1,16 @@
-#i6 {
+.i6 {
     width: 18.75rem;
     height: auto;
   }
   
-#social {
-  background: url(/src/assets/icons/Social.svg);
+.social {
   width: 4.813rem;
   height: 1.625rem;
   background-repeat: no-repeat;
   border: 0rem;
 }
   
-#AppStore {
-  background: url(/src/assets/icons/appstore.svg);
+.appStore {
   width: 7.5rem;
   height: 2.375rem;
   background-repeat: no-repeat;
@@ -20,7 +18,7 @@
   margin-bottom: 1.25rem;
 }
 
-#play {
+.play {
   position: absolute;
   top: 42%;
 }

@@ -1,7 +1,7 @@
-import "./index.scss";
+import styles from "./index.module.scss";
 
 const PrimaryParagraph = ({ text }) => (
-  <p className="primaryParagraph">{text}</p>
+  <p className={styles.primaryParagraph}>{text}</p>
 );
 
 export default PrimaryParagraph;
