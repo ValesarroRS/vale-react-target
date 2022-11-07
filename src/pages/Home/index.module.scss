@@ -8,8 +8,8 @@
     justify-content: center;
   }
   
-  .rightSection {
-    @extend .section;
-    background-color: #2FBCF7;
-    position: relative;
-  }
+.rightSection {
+  @extend .section;
+  background-color: #2FBCF7;
+  position: relative;
+}
