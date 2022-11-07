@@ -1,5 +1,7 @@
-import "./index.scss";
+import style from "./index.module.scss";
 
-const Title = ({ className, text }) => <h1 className={className}>{text}</h1>;
+const Title = ({ text, isSecondary }) => (
+  <h1 className={isSecondary ? style.secondary : style.title}>{text}</h1>
+);
 
 export default Title;

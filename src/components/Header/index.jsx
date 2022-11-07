@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className="header">
       <img src={Smilies} alt="Smilies" />
-      <Title className="title" text="Target MVD" />
+      <Title text="Target MVD" />
       <PrimaryParagraph text={"Find people near you & Connect"} />
       <Description
         text={

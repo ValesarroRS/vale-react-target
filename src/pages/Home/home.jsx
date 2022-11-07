@@ -3,6 +3,7 @@ import SignIn from "components/SignInForm";
 import DownloadApp from "components/DownloadApp";
 import SignUpForm from "components/SignUpForm";
 import About from "components/About";
+import "./index.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const Home = () => {

@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { usePostSignInMutation } from "services/targetApi";
 import { setCredentials, useAuth } from "store/auth.reducer";
 import { useDispatch } from "react-redux";
+import Error from "components/shared/Error";
+import SplitBar from "components/shared/SplitBar";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -79,7 +81,7 @@ function SignIn() {
             onChange={handleChange}
           />
           <Button name="signIn" className="largeButton" text="Sign In" />
-          {signInIsError && <p className="error">{signInError.data.error}</p>}
+          {signInIsError && <Error>{signInError.data.error}</Error>}
         </form>
         <Button
           name="forgotPassword"
@@ -92,7 +94,7 @@ function SignIn() {
         name="connectWithFacebook"
         text="Connect with facebook"
       />
-      <p className="splitBar" />
+      <SplitBar />
       <Button
         name="SignUp"
         text="Sign Up"

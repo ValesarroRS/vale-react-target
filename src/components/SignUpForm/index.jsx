@@ -8,6 +8,8 @@ import {
   useFetchValidGendersQuery,
   usePostSignUpMutation,
 } from "services/targetApi";
+import Title from "components/shared/Title";
+import SplitBar from "components/shared/SplitBar";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -59,7 +61,7 @@ const SignUpForm = () => {
     <>
       <div className="signUpForm">
         <form onSubmit={createUser}>
-          <h1 className="title">Sign Up</h1>
+          <Title text="Sign Up" />
           {signUpLoading && <p>Loading</p>}
           <InputLabel
             className="inputName"
@@ -116,7 +118,7 @@ const SignUpForm = () => {
           {signUpIsError && (
             <p className="error">{signUpError.data.errors.full_messages[0]}</p>
           )}
-          <div className="splitBar" />
+          <SplitBar />
         </form>
         <Button
           name="signIn"
