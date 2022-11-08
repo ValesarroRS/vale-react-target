@@ -9,12 +9,14 @@ const Welcome = () => {
 
   const [
     logOutRequest,
+    /* 
     {
       isLoading: logOutLoading,
       isError: logOutIsError,
       isSuccess: logOutSuccess,
-      error: logOutError,
+      error: logOutError, 
     },
+    */
   ] = useDeleteLogOutMutation();
 
   async function logOut() {

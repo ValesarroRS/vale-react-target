@@ -1,9 +1,21 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
+export const prepareHeaders = (headers, { getState }) => {
+  // By default, if we have a token in the store, let's use that for authenticated requests
+  const { client, access, uid } = getState().auth;
+  if (uid) {
+    headers.set("access-token", access);
+    headers.set("client", client);
+    headers.set("uid", uid);
+  }
+  return headers;
+};
+
 export const targetApi = createApi({
   reducerPath: "targetApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL,
+    prepareHeaders,
   }),
   endpoints: (builder) => ({
     fetchValidGenders: builder.query({
@@ -23,12 +35,13 @@ export const targetApi = createApi({
       query: (body) => {
         return { url: "/users/sign_in", method: "POST", body };
       },
-      transformResponse: (_, meta) => {
+      transformResponse: (res, meta) => {
         const { headers } = meta.response;
         return {
           access: headers.get("Access-Token"),
           client: headers.get("Client"),
           uid: headers.get("Uid"),
+          name: res.user.first_name,
         };
       },
     }),

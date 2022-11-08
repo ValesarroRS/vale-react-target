@@ -1,19 +1,15 @@
 import { React, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { usePostSignInMutation } from "services/targetApi";
+import { setCredentials } from "store/auth.reducer";
 import InputLabel from "components/shared/InputLabel";
 import Button from "components/shared/Button";
 import Header from "components/Header";
-import { useNavigate } from "react-router-dom";
-import { usePostSignInMutation } from "services/targetApi";
-import { setCredentials, revokeCredentials, useAuth } from "store/auth.reducer";
-import { useDispatch } from "react-redux";
-import Error from "components/shared/Error";
-import SplitBar from "components/shared/SplitBar";
-import styles from "./index.module.scss";
 
 function SignIn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user: storeUser } = useAuth();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -21,12 +17,7 @@ function SignIn() {
 
   const [
     signInRequest,
-    {
-      isLoading: signInLoading,
-      isError: signInIsError,
-      isSuccess: signInSucess,
-      error: signInError,
-    },
+    { isLoading: signInLoading, isError: signInIsError, error: signInError },
   ] = usePostSignInMutation();
 
   let credentials;
@@ -52,28 +43,14 @@ function SignIn() {
     setUser({ ...user, [name]: value });
   };
 
-  if (storeUser) {
-    return (
-      <>
-        <div> Already logged in! {storeUser}</div>;
-        <Button
-          className="mediumButton"
-          text="Log out!"
-          onClick={dispatch(revokeCredentials(credentials))}
-        />
-      </>
-    );
-  }
-  if (signInSucess) {
-    return <div> Success yay!</div>;
-  }
   return (
     <>
       <Header />
-      <div className={styles.signIn}>
+      <div className="signIn">
         <form onSubmit={login}>
           {signInLoading && <p>Loading</p>}
           <InputLabel
+            className="inputName"
             name="email"
             id="emailField"
             labelText="Email"
@@ -81,6 +58,7 @@ function SignIn() {
             onChange={handleChange}
           />
           <InputLabel
+            className="inputName"
             name="password"
             id="passwordField"
             labelText="Password"
@@ -88,25 +66,25 @@ function SignIn() {
             value={user.password}
             onChange={handleChange}
           />
-          <Button name="signIn" text="Sign In" />
-          {signInIsError && <Error>{signInError.data.error}</Error>}
+          <Button name="signIn" className="largeButton" text="Sign In" />
+          {signInIsError && <p className="error">{signInError.data.error}</p>}
         </form>
         <Button
           name="forgotPassword"
-          isSmallLink
+          className="smallLinkText"
           text="Forgot your password?"
         />
       </div>
       <Button
-        isMedium
+        className="mediumButton"
         name="connectWithFacebook"
         text="Connect with facebook"
       />
-      <SplitBar />
+      <p className="splitBar" />
       <Button
         name="SignUp"
         text="Sign Up"
-        isSmall
+        className="smallButton"
         onClick={() => navigate("/signup")}
       />
     </>
