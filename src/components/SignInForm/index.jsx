@@ -65,7 +65,6 @@ function SignIn() {
         <form onSubmit={login}>
           {signInLoading && <p>Loading</p>}
           <InputLabel
-            className={styles.inputName}
             name="email"
             id="emailField"
             labelText="Email"
@@ -73,7 +72,6 @@ function SignIn() {
             onChange={handleChange}
           />
           <InputLabel
-            className={styles.inputName}
             name="password"
             id="passwordField"
             labelText="Password"
@@ -86,12 +84,12 @@ function SignIn() {
         </form>
         <Button
           name="forgotPassword"
-          isSmallLink={true}
+          isSmallLink
           text="Forgot your password?"
         />
       </div>
       <Button
-        isMedium={true}
+        isMedium
         name="connectWithFacebook"
         text="Connect with facebook"
       />
@@ -99,7 +97,7 @@ function SignIn() {
       <Button
         name="SignUp"
         text="Sign Up"
-        isSmall={true}
+        isSmall
         onClick={() => navigate("/signup")}
       />
     </>

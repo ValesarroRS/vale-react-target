@@ -10,6 +10,7 @@ import {
 } from "services/targetApi";
 import Title from "components/shared/Title";
 import SplitBar from "components/shared/SplitBar";
+import Error from "components/shared/Error";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -59,12 +60,11 @@ const SignUpForm = () => {
   }
   return (
     <>
-      <div className="signUpForm">
+      <div>
         <form onSubmit={createUser}>
           <Title text="Sign Up" />
           {signUpLoading && <p>Loading</p>}
           <InputLabel
-            className="inputName"
             name="name"
             id="name"
             labelText="Name"
@@ -72,7 +72,6 @@ const SignUpForm = () => {
             onChange={handleChange}
           />
           <InputLabel
-            className="inputName"
             name="email"
             id="email"
             labelText="Email"
@@ -80,7 +79,6 @@ const SignUpForm = () => {
             onChange={handleChange}
           />
           <InputLabel
-            className="inputName"
             name="password"
             id="password"
             labelText="Password"
@@ -90,7 +88,6 @@ const SignUpForm = () => {
             onChange={handleChange}
           />
           <InputLabel
-            className="inputName"
             name="confPassword"
             id="confPassword"
             labelText="Confirm Password"
@@ -99,7 +96,6 @@ const SignUpForm = () => {
             onChange={handleChange}
           />
           <DropDown
-            className="inputName"
             id="gender"
             name="gender"
             labelText="Gender"
@@ -111,13 +107,13 @@ const SignUpForm = () => {
           />
           <Button name="signUp" text="Sign Up" type="submit" />
           {signUpIsError && (
-            <p className="error">{signUpError.data.errors.full_messages[0]}</p>
+            <Error>{signUpError.data.errors.full_messages[0]}</Error>
           )}
           <SplitBar />
         </form>
         <Button
           name="signIn"
-          isSmall={true}
+          isSmall
           text="Sign In"
           onClick={() => navigate("/")}
         />
