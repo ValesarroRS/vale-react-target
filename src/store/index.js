@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { targetApi } from "../services/targetApi";
+import { targetApi } from "services/targetApi";
 import authReducer from "./auth.reducer";
 
 const rootReducer = combineReducers({

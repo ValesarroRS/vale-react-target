@@ -1,12 +1,14 @@
-import React from "react";
-import { useState } from "react";
-import InputLabel from "../shared/InputLabel/index.jsx";
-import Button from "../shared/Button/index.jsx";
-import Header from "../Header/index.jsx";
+import { React, useState } from "react";
+import InputLabel from "components/shared/InputLabel";
+import Button from "components/shared/Button";
+import Header from "components/Header";
 import { useNavigate } from "react-router-dom";
-import { usePostSignInMutation } from "../../services/targetApi.js";
-import { setCredentials, useAuth } from "../../store/auth.reducer";
+import { usePostSignInMutation } from "services/targetApi";
+import { setCredentials, useAuth } from "store/auth.reducer";
 import { useDispatch } from "react-redux";
+import Error from "components/shared/Error";
+import SplitBar from "components/shared/SplitBar";
+import styles from "./index.module.scss";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -59,11 +61,10 @@ function SignIn() {
   return (
     <>
       <Header />
-      <div className="signIn">
+      <div className={styles.signIn}>
         <form onSubmit={login}>
           {signInLoading && <p>Loading</p>}
           <InputLabel
-            className="inputName"
             name="email"
             id="emailField"
             labelText="Email"
@@ -71,7 +72,6 @@ function SignIn() {
             onChange={handleChange}
           />
           <InputLabel
-            className="inputName"
             name="password"
             id="passwordField"
             labelText="Password"
@@ -79,21 +79,25 @@ function SignIn() {
             value={user.password}
             onChange={handleChange}
           />
-          <Button name="signIn" className="largeButton" text="Sign In" />
-          {signInIsError && <p className="error">{signInError.data.error}</p>}
+          <Button name="signIn" text="Sign In" />
+          {signInIsError && <Error>{signInError.data.error}</Error>}
         </form>
-        <p className="forgotPassword">Forgot your password?</p>
+        <Button
+          name="forgotPassword"
+          isSmallLink
+          text="Forgot your password?"
+        />
       </div>
       <Button
-        className="mediumButton"
+        isMedium
         name="connectWithFacebook"
         text="Connect with facebook"
       />
-      <p className="splitBar" />
+      <SplitBar />
       <Button
         name="SignUp"
         text="Sign Up"
-        className="smallButton"
+        isSmall
         onClick={() => navigate("/signup")}
       />
     </>
