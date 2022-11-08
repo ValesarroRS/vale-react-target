@@ -4,7 +4,7 @@ import Button from "components/shared/Button";
 import Header from "components/Header";
 import { useNavigate } from "react-router-dom";
 import { usePostSignInMutation } from "services/targetApi";
-import { setCredentials, useAuth } from "store/auth.reducer";
+import { setCredentials, revokeCredentials, useAuth } from "store/auth.reducer";
 import { useDispatch } from "react-redux";
 import Error from "components/shared/Error";
 import SplitBar from "components/shared/SplitBar";
@@ -29,6 +29,7 @@ function SignIn() {
     },
   ] = usePostSignInMutation();
 
+  let credentials;
   async function login(event) {
     event.preventDefault();
     const body = {
@@ -37,14 +38,13 @@ function SignIn() {
         password: user.password,
       },
     };
-    let credentials;
     try {
       credentials = await signInRequest(body).unwrap();
     } catch (error) {
       return;
     }
     dispatch(setCredentials(credentials));
-    // TODO: here should I add navigation to home page later.
+    navigate("/welcome");
   }
 
   const handleChange = (event) => {
@@ -53,7 +53,16 @@ function SignIn() {
   };
 
   if (storeUser) {
-    return <div> Already logged in! {storeUser}</div>;
+    return (
+      <>
+        <div> Already logged in! {storeUser}</div>;
+        <Button
+          className="mediumButton"
+          text="Log out!"
+          onClick={dispatch(revokeCredentials(credentials))}
+        />
+      </>
+    );
   }
   if (signInSucess) {
     return <div> Success yay!</div>;

@@ -32,6 +32,11 @@ export const targetApi = createApi({
         };
       },
     }),
+    deleteLogOut: builder.mutation({
+      query: (body) => {
+        return { url: "/users/sign_out", method: "DELETE", body };
+      },
+    }),
   }),
 });
 
@@ -39,4 +44,5 @@ export const {
   useFetchValidGendersQuery,
   usePostSignUpMutation,
   usePostSignInMutation,
+  useDeleteLogOutMutation,
 } = targetApi;
