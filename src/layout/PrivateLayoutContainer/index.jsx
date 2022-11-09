@@ -9,7 +9,7 @@ const PrivateLayoutContainer = ({ uid }) => {
         <Outlet />
       </section>
       <section className={styles.rightSection}>
-        <p> Aca va el mapita </p>
+        <p> TODO: Here goes the map </p>
       </section>
     </>
   );

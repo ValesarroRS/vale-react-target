@@ -10,6 +10,7 @@ font-family: 'Open Sans', sans-serif;
   
 .rightSection {
   @extend .section;
+  width: 75%;
   background-color: beige;
   position: relative;
 }

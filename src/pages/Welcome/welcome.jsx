@@ -29,7 +29,7 @@ const Welcome = () => {
   }
   return (
     <>
-      <Button variant="medium" text="Log out" onClick={() => logOut()} />
+      <Button text="Log out" onClick={() => logOut()} />
     </>
   );
 };
