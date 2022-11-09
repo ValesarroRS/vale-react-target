@@ -6,6 +6,9 @@ import { setCredentials } from "store/auth.reducer";
 import InputLabel from "components/shared/InputLabel";
 import Button from "components/shared/Button";
 import Header from "components/Header";
+import SplitBar from "components/shared/SplitBar";
+import Error from "components/shared/Error";
+import styles from "./index.module.scss";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -46,11 +49,10 @@ function SignIn() {
   return (
     <>
       <Header />
-      <div className="signIn">
+      <div className={styles.signIn}>
         <form onSubmit={login}>
           {signInLoading && <p>Loading</p>}
           <InputLabel
-            className="inputName"
             name="email"
             id="emailField"
             labelText="Email"
@@ -58,7 +60,6 @@ function SignIn() {
             onChange={handleChange}
           />
           <InputLabel
-            className="inputName"
             name="password"
             id="passwordField"
             labelText="Password"
@@ -66,25 +67,27 @@ function SignIn() {
             value={user.password}
             onChange={handleChange}
           />
-          <Button name="signIn" className="largeButton" text="Sign In" />
-          {signInIsError && <p className="error">{signInError.data.error}</p>}
+          <Button name="signIn" text="Sign In" />
+          {signInIsError && (
+            <Error className="error">{signInError.data.error}</Error>
+          )}
         </form>
         <Button
           name="forgotPassword"
-          className="smallLinkText"
+          variant="smallLink"
           text="Forgot your password?"
         />
       </div>
       <Button
-        className="mediumButton"
+        variant="medium"
         name="connectWithFacebook"
         text="Connect with facebook"
       />
-      <p className="splitBar" />
+      <SplitBar />
       <Button
         name="SignUp"
         text="Sign Up"
-        className="smallButton"
+        variant="small"
         onClick={() => navigate("/signup")}
       />
     </>

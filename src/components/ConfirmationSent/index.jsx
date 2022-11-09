@@ -11,7 +11,7 @@ const ConfirmationSent = () => {
 
   return (
     <div>
-      <button onClick={() => navigate("/")}>
+      <button onClick={() => navigate("/signIn")}>
         <img src={Smilies} alt="Smilies" />
       </button>
       <div className={styles.titleSection}>
