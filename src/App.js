@@ -1,4 +1,3 @@
-//import Home from "./pages/Home/home.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { StrictMode } from "react";
 import { useAuth } from "store/auth.reducer";

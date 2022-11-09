@@ -68,7 +68,7 @@ function SignIn() {
             onChange={handleChange}
           />
           <Button name="signIn" text="Sign In" />
-          {signInIsError && (
+          {!signInLoading && signInIsError && (
             <Error className="error">{signInError.data.error}</Error>
           )}
         </form>

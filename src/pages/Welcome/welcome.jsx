@@ -7,17 +7,7 @@ import { useDispatch } from "react-redux";
 const Welcome = () => {
   const dispatch = useDispatch();
 
-  const [
-    logOutRequest,
-    /* 
-    {
-      isLoading: logOutLoading,
-      isError: logOutIsError,
-      isSuccess: logOutSuccess,
-      error: logOutError, 
-    },
-    */
-  ] = useDeleteLogOutMutation();
+  const [logOutRequest] = useDeleteLogOutMutation();
 
   async function logOut() {
     try {
@@ -29,7 +19,7 @@ const Welcome = () => {
   }
   return (
     <>
-      <Button text="Log out" onClick={() => logOut()} />
+      <Button text="Log out" onClick={logOut} />
     </>
   );
 };

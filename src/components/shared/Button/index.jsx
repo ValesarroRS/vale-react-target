@@ -8,7 +8,6 @@ const Button = ({ name, text, type, variant = "default", onClick }) => {
     [styles.mediumButton]: variant === "medium",
     [styles.largeButton]: variant === "default",
   });
-  console.log(variant);
   return (
     <button name={name} className={variants} type={type} onClick={onClick}>
       {text}
