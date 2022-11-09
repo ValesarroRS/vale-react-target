@@ -1,5 +1,9 @@
 import styles from "./index.module.scss";
 
-const Description = ({ text }) => <p className={styles.description}>{text}</p>;
+const Description = ({ text, upperCase }) => (
+  <p className={upperCase ? styles.upperCaseDescription : styles.description}>
+    {text}
+  </p>
+);
 
 export default Description;
