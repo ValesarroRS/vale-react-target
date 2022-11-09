@@ -113,9 +113,9 @@ const SignUpForm = () => {
         </form>
         <Button
           name="signIn"
-          isSmall
+          variant="small"
           text="Sign In"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/signIn")}
         />
       </div>
     </>

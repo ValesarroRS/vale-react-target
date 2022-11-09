@@ -1,19 +1,18 @@
 import { React, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { usePostSignInMutation } from "services/targetApi";
+import { setCredentials } from "store/auth.reducer";
 import InputLabel from "components/shared/InputLabel";
 import Button from "components/shared/Button";
 import Header from "components/Header";
-import { useNavigate } from "react-router-dom";
-import { usePostSignInMutation } from "services/targetApi";
-import { setCredentials, useAuth } from "store/auth.reducer";
-import { useDispatch } from "react-redux";
-import Error from "components/shared/Error";
 import SplitBar from "components/shared/SplitBar";
+import Error from "components/shared/Error";
 import styles from "./index.module.scss";
 
 function SignIn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user: storeUser } = useAuth();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -21,14 +20,10 @@ function SignIn() {
 
   const [
     signInRequest,
-    {
-      isLoading: signInLoading,
-      isError: signInIsError,
-      isSuccess: signInSucess,
-      error: signInError,
-    },
+    { isLoading: signInLoading, isError: signInIsError, error: signInError },
   ] = usePostSignInMutation();
 
+  let credentials;
   async function login(event) {
     event.preventDefault();
     const body = {
@@ -37,14 +32,13 @@ function SignIn() {
         password: user.password,
       },
     };
-    let credentials;
     try {
       credentials = await signInRequest(body).unwrap();
     } catch (error) {
       return;
     }
     dispatch(setCredentials(credentials));
-    // TODO: here should I add navigation to home page later.
+    navigate("/welcome");
   }
 
   const handleChange = (event) => {
@@ -52,12 +46,6 @@ function SignIn() {
     setUser({ ...user, [name]: value });
   };
 
-  if (storeUser) {
-    return <div> Already logged in! {storeUser}</div>;
-  }
-  if (signInSucess) {
-    return <div> Success yay!</div>;
-  }
   return (
     <>
       <Header />
@@ -80,16 +68,18 @@ function SignIn() {
             onChange={handleChange}
           />
           <Button name="signIn" text="Sign In" />
-          {signInIsError && <Error>{signInError.data.error}</Error>}
+          {!signInLoading && signInIsError && (
+            <Error className="error">{signInError.data.error}</Error>
+          )}
         </form>
         <Button
           name="forgotPassword"
-          isSmallLink
+          variant="smallLink"
           text="Forgot your password?"
         />
       </div>
       <Button
-        isMedium
+        variant="medium"
         name="connectWithFacebook"
         text="Connect with facebook"
       />
@@ -97,7 +87,7 @@ function SignIn() {
       <Button
         name="SignUp"
         text="Sign Up"
-        isSmall
+        variant="small"
         onClick={() => navigate("/signup")}
       />
     </>
