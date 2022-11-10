@@ -40,7 +40,7 @@ const Map = () => {
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         </MapContainer>
       ) : (
-        <p> Loading . . . </p> // TODO: Make it facherito
+        <p> Loading . . . </p>
       )}
     </div>
   );
