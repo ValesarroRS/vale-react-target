@@ -1,8 +1,11 @@
 import Button from "components/shared/Button";
 import React from "react";
+
 import { useDeleteLogOutMutation } from "services/targetApi";
 import { revokeCredentials } from "store/auth.reducer";
 import { useDispatch } from "react-redux";
+import HomeWelcome from "components/HomeWelcome";
+import SplitBar from "components/shared/SplitBar";
 
 const Welcome = () => {
   const dispatch = useDispatch();
@@ -19,7 +22,9 @@ const Welcome = () => {
   }
   return (
     <>
-      <Button text="Log out" onClick={logOut} />
+      <HomeWelcome />
+      <SplitBar />
+      <Button text="Log out" variant="small" onClick={logOut} />
     </>
   );
 };

@@ -1,7 +1,14 @@
 .description {
     font-size: 0.875rem;
     line-height: 1.625rem;
-    text-align: center;
+    text-align: left;
     font-weight: 300;
     margin: 0rem;
   }
+
+.upperCaseDescription {
+  @extend .description;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.131rem;
+}

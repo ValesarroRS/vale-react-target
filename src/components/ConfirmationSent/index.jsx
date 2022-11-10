@@ -15,7 +15,7 @@ const ConfirmationSent = () => {
         <img src={Smilies} alt="Smilies" />
       </button>
       <div className={styles.titleSection}>
-        <Title isSecondary text="Yey!" />
+        <Title variant="secondary" text="Yey!" />
         <PrimaryParagraph text={"Only one more step to start enjoying"} />
         <Title text="target" />
       </div>

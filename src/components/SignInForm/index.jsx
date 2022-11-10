@@ -69,7 +69,7 @@ function SignIn() {
           />
           <Button name="signIn" text="Sign In" />
           {!signInLoading && signInIsError && (
-            <Error className="error">{signInError.data.error}</Error>
+            <Error>{signInError.data.error}</Error>
           )}
         </form>
         <Button
