@@ -7,7 +7,7 @@ import styles from "./index.module.scss";
 const Map = () => {
   const [coords, setCoords] = useState(null);
   const [latitudeState, longitudeState] = coords ?? [];
-
+  const DEFAULT_COORDS = [-33.6003, -69.426086];
   const setCurrentCoords = (location) => {
     if (location)
       setCoords([location.coords.latitude, location.coords.longitude]);
@@ -15,7 +15,7 @@ const Map = () => {
 
   const handleLocationBlocked = (error) => {
     if (error.code === error.PERMISSION_DENIED) {
-      setCoords([-33.6003, -69.426086]);
+      setCoords(DEFAULT_COORDS);
     }
   };
 
@@ -28,7 +28,6 @@ const Map = () => {
     }
   }, []);
 
-  console.log(latitudeState, longitudeState);
   return (
     <div className={styles.map}>
       {coords ? (
