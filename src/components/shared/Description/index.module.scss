@@ -1,7 +1,6 @@
 .description {
     font-size: 0.875rem;
     line-height: 1.625rem;
-    text-align: left;
     font-weight: 300;
     margin: 0rem;
   }
@@ -11,4 +10,14 @@
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.131rem;
+}
+
+.leftDescription {
+  @extend .description;
+  text-align: left;
+}
+
+.medium {
+  font-size: 0.938rem;
+  margin: 0rem;
 }

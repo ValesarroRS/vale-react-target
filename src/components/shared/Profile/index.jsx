@@ -40,7 +40,7 @@ const Profile = () => {
       <Description variant="medium"> cbrum</Description>
       <div className={styles.options}>
         <Button variant="mediumLinkBlue" text="Edit" className={styles} />
-        <p> / </p>
+        <p className={styles.split}> / </p>
         <Button variant="mediumLink" text="Logout" onClick={logOut} />
       </div>
       <SplitBar />

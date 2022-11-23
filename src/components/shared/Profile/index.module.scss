@@ -1,0 +1,32 @@
+.profilePic {
+    position: relative;
+    margin-top: 0.75rem;
+}
+
+.profileBackground {
+    top: 0;
+    left: 0;
+}
+.profileIcon {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+}
+
+.options {
+    display: flex;
+    align-items: baseline;
+    margin: 0rem;
+}
+
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    top: 0rem;
+    .split {
+    margin: 0rem;
+    }
+}
+
+
