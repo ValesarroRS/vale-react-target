@@ -35,3 +35,13 @@ button {
     text-transform: none;
     letter-spacing: normal;
 }
+
+.mediumLinkText {
+    @extend .smallLinkText;
+    font-size: 0.75rem;
+    letter-spacing: 0.113rem;
+}
+.mediumLinkTextBlue {
+    @extend .mediumLinkText;
+    color: #2FBCF7;
+}
