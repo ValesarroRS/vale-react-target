@@ -7,6 +7,7 @@ import SignIn from "components/SignInForm";
 import Welcome from "pages/Welcome/welcome";
 import "./App.css";
 import PrivateLayoutContainer from "layout/PrivateLayoutContainer";
+import HomeEmptyState from "components/HomeEmptyState";
 
 const App = () => {
   const user = useAuth();
@@ -26,6 +27,7 @@ const App = () => {
                 }
               >
                 <Route path="/welcome" element={<Welcome />} />
+                <Route path="/homeEmptyState" element={<HomeEmptyState />} />
               </Route>
             </Route>
           </Routes>
