@@ -9,7 +9,7 @@ import Profile from "components/shared/Profile";
 import Description from "components/shared/Description";
 
 const HomeEmptyState = () => (
-  <div className={styles.containerHomeEmpty}>
+  <div className={styles.homeEmptyContainer}>
     <Profile />
     <div>
       <PrimaryParagraph text="Create your first target by " />
