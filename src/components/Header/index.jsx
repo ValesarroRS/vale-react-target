@@ -11,11 +11,11 @@ const Header = () => {
       <img src={Smilies} alt="Smilies" />
       <Title text="Target MVD" />
       <PrimaryParagraph text="Find people near you & Connect" />
-      <Description
-        text={
-          "Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and start connecting with others who share your interests."
-        }
-      />
+      <Description>
+        Create a target wherever on the map, specify your interest: Travel,
+        Dating, Music, etc and start connecting with others who share your
+        interests.
+      </Description>
     </div>
   );
 };
