@@ -16,11 +16,15 @@ const ConfirmationSent = () => {
       </button>
       <div className={styles.titleSection}>
         <Title variant="secondary" text="Yey!" />
-        <PrimaryParagraph text={"Only one more step to start enjoying"} />
+        <PrimaryParagraph text="Only one more step to start enjoying" />
         <Title text="target" />
       </div>
-      <Description text="We've sent an email to confirm your account." />
-      <Description text="Please check your inbox." />
+      <div className={styles.confirmationText}>
+        <Description>
+          We&apos;ve sent an email to confirm your account. Please check your
+          inbox.
+        </Description>
+      </div>
     </div>
   );
 };

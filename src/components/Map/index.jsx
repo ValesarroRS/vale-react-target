@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Icon } from "leaflet";
+import marker from "../../assets/icons/currentLocation.svg";
 import "leaflet/dist/leaflet.css";
 
 import styles from "./index.module.scss";
+
+const markerIcon = new Icon({
+  iconUrl: marker,
+  iconRetinaUrl: marker,
+  popupAnchor: [-0, -0],
+  iconSize: [53, 69],
+});
 
 const Map = () => {
   const [coords, setCoords] = useState(null);
@@ -36,6 +45,9 @@ const Map = () => {
           center={[latitudeState, longitudeState]}
           zoom={15}
         >
+          <Marker position={[latitudeState, longitudeState]} icon={markerIcon}>
+            <Popup> You are here! </Popup>
+          </Marker>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         </MapContainer>
       ) : (

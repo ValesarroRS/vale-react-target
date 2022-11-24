@@ -7,6 +7,8 @@ const Button = ({ name, text, type, variant = "default", onClick }) => {
     [styles.smallLinkText]: variant === "smallLink",
     [styles.mediumButton]: variant === "medium",
     [styles.largeButton]: variant === "default",
+    [styles.mediumLinkText]: variant === "mediumLink",
+    [styles.mediumLinkTextBlue]: variant === "mediumLinkBlue",
   });
   return (
     <button name={name} className={variants} type={type} onClick={onClick}>
