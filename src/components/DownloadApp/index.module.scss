@@ -24,8 +24,9 @@
 }
 
 .downloadAppContainer {
+  height: 100%;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  margin-top: 7rem;
+  justify-content: center;
+  align-items: center;
 }
