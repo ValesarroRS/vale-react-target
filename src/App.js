@@ -4,6 +4,7 @@ import { useAuth } from "store/auth.reducer";
 import PublicLayoutContainer from "layout/PublicLayoutContainer";
 import SignUpForm from "components/SignUpForm";
 import SignIn from "components/SignInForm";
+import About from "components/About";
 import Welcome from "pages/Welcome/welcome";
 import "./App.css";
 import PrivateLayoutContainer from "layout/PrivateLayoutContainer";
@@ -20,6 +21,7 @@ const App = () => {
               <Route element={<PublicLayoutContainer uid={user.uid} />}>
                 <Route path="/signIn" element={<SignIn />} />
                 <Route path="/signUp" element={<SignUpForm />} />
+                <Route path="/about" element={<About />} />
               </Route>
               <Route
                 element={
