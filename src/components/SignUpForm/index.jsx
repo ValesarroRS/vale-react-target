@@ -8,6 +8,7 @@ import {
   useFetchValidGendersQuery,
   usePostSignUpMutation,
 } from "services/targetApi";
+import styles from "./index.module.scss";
 import Title from "components/shared/Title";
 import SplitBar from "components/shared/SplitBar";
 import Error from "components/shared/Error";
@@ -59,66 +60,64 @@ const SignUpForm = () => {
     return <ConfirmationSent />;
   }
   return (
-    <>
-      <div>
-        <form onSubmit={createUser}>
-          <Title text="Sign Up" />
-          {signUpLoading && <p>Loading</p>}
-          <InputLabel
-            name="name"
-            id="name"
-            labelText="Name"
-            value={user.name}
-            onChange={handleChange}
-          />
-          <InputLabel
-            name="email"
-            id="email"
-            labelText="Email"
-            value={user.email}
-            onChange={handleChange}
-          />
-          <InputLabel
-            name="password"
-            id="password"
-            labelText="Password"
-            type="password"
-            value={user.password}
-            placeholder="Min. 6 characters long"
-            onChange={handleChange}
-          />
-          <InputLabel
-            name="confPassword"
-            id="confPassword"
-            labelText="Confirm Password"
-            type="password"
-            value={user.confPassword}
-            onChange={handleChange}
-          />
-          <DropDown
-            id="gender"
-            name="gender"
-            labelText="Gender"
-            value={user.gender}
-            placeholder="select your gender"
-            onChange={handleChange}
-            options={genderData}
-            isLoading={genderLoading}
-          />
-          <Button name="signUp" text="Sign Up" type="submit" />
-          {signUpIsError && (
-            <Error>{signUpError.data.errors.full_messages[0]}</Error>
-          )}
-          <SplitBar />
-        </form>
-        <Button
-          name="signIn"
-          variant="small"
-          text="Sign In"
-          onClick={() => navigate("/signIn")}
+    <div className={styles.signUpContainer}>
+      <form onSubmit={createUser}>
+        <Title text="Sign Up" />
+        {signUpLoading && <p>Loading</p>}
+        <InputLabel
+          name="name"
+          id="name"
+          labelText="Name"
+          value={user.name}
+          onChange={handleChange}
         />
-      </div>
-    </>
+        <InputLabel
+          name="email"
+          id="email"
+          labelText="Email"
+          value={user.email}
+          onChange={handleChange}
+        />
+        <InputLabel
+          name="password"
+          id="password"
+          labelText="Password"
+          type="password"
+          value={user.password}
+          placeholder="Min. 6 characters long"
+          onChange={handleChange}
+        />
+        <InputLabel
+          name="confPassword"
+          id="confPassword"
+          labelText="Confirm Password"
+          type="password"
+          value={user.confPassword}
+          onChange={handleChange}
+        />
+        <DropDown
+          id="gender"
+          name="gender"
+          labelText="Gender"
+          value={user.gender}
+          placeholder="select your gender"
+          onChange={handleChange}
+          options={genderData}
+          isLoading={genderLoading}
+        />
+        <Button name="signUp" text="Sign Up" type="submit" />
+        {signUpIsError && (
+          <Error>{signUpError.data.errors.full_messages[0]}</Error>
+        )}
+        <SplitBar />
+      </form>
+      <Button
+        name="signIn"
+        variant="small"
+        text="Sign In"
+        onClick={() => navigate("/signIn")}
+      />
+    </div>
   );
 };
 
