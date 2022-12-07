@@ -5,11 +5,10 @@ import styles from "./index.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "store/auth.reducer";
 
-const HomeMenu = ({ openContactModal }) => {
+const HomeMenu = ({ openContactModal, openAboutModal }) => {
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
   const user = useAuth();
-  const aboutPath = !user.uid ? "/about" : "/aboutAlt";
 
   return (
     <div className={styles.homeMenu}>
@@ -19,7 +18,7 @@ const HomeMenu = ({ openContactModal }) => {
           <Button
             variant="mediumLink"
             text="ABOUT"
-            onClick={() => navigate(aboutPath)}
+            onClick={!user.uid ? () => navigate("/about") : openAboutModal}
           />
           <Button
             variant="mediumLink"
@@ -32,4 +31,5 @@ const HomeMenu = ({ openContactModal }) => {
   );
 };
 
+//onClick=
 export default HomeMenu;

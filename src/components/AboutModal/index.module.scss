@@ -1,0 +1,23 @@
+.aboutModalContainer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    min-width: 22.438rem;
+}
+
+.paddingContainer {
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    opacity: 1;
+    background-color: white;
+}
+
+.descriptionContainer {
+    text-align: justify;
+}
