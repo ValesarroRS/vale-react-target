@@ -22,7 +22,12 @@ const Contact = ({ closeContact, hasSession }) => (
       <img src={smilies} alt="smilies" />
       <PrimaryParagraph text="Don't be shy, drop us a line!" />
       <InputLabel className={styles.emailInput} labelText="Email *" />
-      <InputLabel className={styles.messageInput} labelText="Message *" />
+      <label htmlFor="textarea">Message *</label>
+      <textarea
+        id="textarea"
+        className={styles.messageInput}
+        labelText="Message *"
+      />
       <Button text="Send" />
     </div>
   </div>
