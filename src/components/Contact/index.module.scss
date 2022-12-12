@@ -1,0 +1,31 @@
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    opacity: 1;
+    background-color: white;
+    padding: 2rem;
+}
+
+.backdrop {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    background-color: #2a7898cc;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.smallBackdrop {
+    width: 25%;
+    min-width: 22.438rem;
+    right: unset;
+}
+
+.messageInput{
+    width: 18.5rem;
+    height: 9.688rem;
+}

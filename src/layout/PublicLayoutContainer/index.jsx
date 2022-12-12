@@ -1,14 +1,16 @@
 import { Outlet, Navigate } from "react-router-dom";
 import DownloadApp from "components/DownloadApp";
 import styles from "./index.module.scss";
+import HomeMenu from "components/HomeMenu";
 
-const PublicLayoutContainer = ({ uid }) => {
+const PublicLayoutContainer = ({ uid, openContactModal }) => {
   if (uid) {
     return <Navigate to="/welcome" replace />;
   }
   return (
     <>
       <section className={styles.section}>
+        <HomeMenu openContactModal={openContactModal} />
         <Outlet />
       </section>
       <section className={styles.rightSection}>

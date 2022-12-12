@@ -7,3 +7,11 @@
   font-weight: 600;
   letter-spacing: 0.131rem;
 }
+
+.welcomeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+}

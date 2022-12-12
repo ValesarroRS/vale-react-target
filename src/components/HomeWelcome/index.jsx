@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const HomeWelcome = () => {
   const navigate = useNavigate();
   return (
-    <>
+    <div className={styles.welcomeContainer}>
       <img src={Smilies} alt="Smilies" />
       <div className={styles.welcomeTitle}>
         <Title variant="lowerCase" text="Welcome to " />
@@ -28,7 +28,7 @@ const HomeWelcome = () => {
         </PointedListElement>
       </div>
       <Button text="ok; got it!" onClick={() => navigate("/homeEmptyState")} />
-    </>
+    </div>
   );
 };
 export default HomeWelcome;

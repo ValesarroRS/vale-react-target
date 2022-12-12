@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./index.module.scss";
 import PopularTargets from "../../assets/icons/popularTargets.svg";
-import smilies from "../../assets/icons/smilies.svg";
+import SmiliesFooter from "components/shared/SmiliesFooter";
 
 import PrimaryParagraph from "components/shared/Paragraph";
 import Profile from "components/shared/Profile";
@@ -25,7 +25,7 @@ const HomeEmptyState = () => (
         className={styles.popularTargetsImg}
       />
     </div>
-    <img src={smilies} alt="smiliesFooter" className={styles.footer} />
+    <SmiliesFooter />
   </div>
 );
 

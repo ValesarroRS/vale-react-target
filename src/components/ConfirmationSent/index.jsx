@@ -8,9 +8,8 @@ import styles from "./index.module.scss";
 
 const ConfirmationSent = () => {
   const navigate = useNavigate();
-
   return (
-    <div>
+    <div className={styles.confirmationContainer}>
       <button onClick={() => navigate("/signIn")}>
         <img src={Smilies} alt="Smilies" />
       </button>

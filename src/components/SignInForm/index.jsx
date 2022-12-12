@@ -47,7 +47,7 @@ function SignIn() {
   };
 
   return (
-    <>
+    <div className={styles.signInContainer}>
       <Header />
       <div className={styles.signIn}>
         <form onSubmit={login}>
@@ -90,7 +90,7 @@ function SignIn() {
         variant="small"
         onClick={() => navigate("/signup")}
       />
-    </>
+    </div>
   );
 }
 

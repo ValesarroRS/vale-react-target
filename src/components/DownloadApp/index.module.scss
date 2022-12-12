@@ -22,3 +22,11 @@
   position: absolute;
   top: 42%;
 }
+
+.downloadAppContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
