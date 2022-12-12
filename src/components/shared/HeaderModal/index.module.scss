@@ -1,0 +1,24 @@
+.headerModalContainer {
+    background-color: #2FBCF7;
+    width: 368px;
+    height: 59px;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+.headerModalTitle {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+.arrowButton{
+    margin-left: 1rem;
+    margin-right: 3.301rem;
+
+}

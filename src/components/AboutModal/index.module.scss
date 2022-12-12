@@ -9,7 +9,7 @@
 
 .paddingContainer {
     position: relative;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -20,4 +20,7 @@
 
 .descriptionContainer {
     text-align: justify;
+}
+.smiliesContainer {
+    margin-top: 2.5rem;
 }

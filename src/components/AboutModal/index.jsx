@@ -6,8 +6,8 @@ import styles from "./index.module.scss";
 
 const AboutModal = ({ closeAbout }) => (
   <div className={styles.aboutModalContainer}>
+    <HeaderModal title="What's target?" onClick={closeAbout} />
     <div className={styles.paddingContainer}>
-      <HeaderModal title="What's target?" onClick={closeAbout} />
       <div className={styles.descriptionContainer}>
         <Description>
           Cat ipsum dolor sit amet, scratch the furniture. Spit up on light gray
@@ -27,7 +27,9 @@ const AboutModal = ({ closeAbout }) => (
           checked!.
         </Description>
       </div>
-      <SmiliesFooter />
+      <div className={styles.smiliesContainer}>
+        <SmiliesFooter />
+      </div>
     </div>
   </div>
 );
